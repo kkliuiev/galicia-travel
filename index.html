@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подорож в Серце Галісії</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, #2c5f2d, #97bc62, #f4a261);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .crab-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Navigation */
+        nav {
+            background: #2c5f2d;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: #2c5f2d;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #97bc62;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            font-size: 1.8em;
+            color: #4a7c4b;
+            margin: 30px 0 20px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Cards grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #97bc62;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h4 {
+            font-size: 1.4em;
+            color: #2c5f2d;
+            margin-bottom: 10px;
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #2c5f2d;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Highlights */
+        .highlight {
+            background: linear-gradient(120deg, #97bc62 0%, #f4a261 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-size: 1.2em;
+        }
+
+        .highlight strong {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        /* Lists */
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        /* Fun facts */
+        .fun-fact {
+            background: #fff3cd;
+            border-left: 5px solid #f4a261;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .fun-fact::before {
+            content: '💡 ';
+        }
+
+        /* Footer */
+        footer {
+            background: #2c5f2d;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <span class="crab-icon">🦀</span>
+        <h1>Подорож в Серце Галісії</h1>
+        <p>Відкрий для себе наймальовничіший куток Іспанії — де кельтська культура зустрічається з Атлантикою, а каміно веде до душі</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#santiago">🏛️ Сантьяго</a></li>
+            <li><a href="#cies">🏝️ Острови Сіс</a></li>
+            <li><a href="#gastronomy">🍽️ Гастрономія</a></li>
+            <li><a href="#practical">💡 Поради</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Santiago Section -->
+        <section id="santiago" class="section">
+            <h2>🏛️ Santiago de Compostela</h2>
+            
+            <div class="highlight">
+                <strong>🌟 Чому варто відвідати?</strong>
+                Сантьяго-де-Компостела — столиця Галісії, одне з найважливіших християнських міст світу та фіні Каміно де Сантьяго. Старе місто — об'єкт ЮНЕСКО.
+            </div>
+
+            <h3>📍 Загальна інформація</h3>
+            <p><strong>Населення:</strong> ~96 000 жителів<br>
+            <strong>Статус:</strong> Столиця автономного співтовариства Галісія<br>
+            <strong>ЮНЕСКО:</strong> Світова спадщина з 1985 року</p>
+
+            <h3>🚉 Як дістатися</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">✈️</span>
+                    <h4>Літак</h4>
+                    <p>Аеропорт SCQ, ~20 км від центру. Прямих рейсів з Києва немає. Летіть через Мадрид або Барселону.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🚄</span>
+                    <h4>Потяг AVE</h4>
+                    <p>З Мадрида — ~5.5 год. З Барселони — ~10.5 год. Станція в центрі міста.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🚌</span>
+                    <h4>Автобус</h4>
+                    <p>ALGA та інші компанії. З Мадрида ~8-9 год. Зручно, але довго.</p>
+                </div>
+            </div>
+
+            <h3>⛪ Головні пам'ятки</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">⛪</span>
+                    <h4>Кафедральний собор</h4>
+                    <p>Романський собор (1075-1211), поховання апостола Якова. Ботуфумейро — найбільший кадильниця у світі!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🐚</span>
+                    <h4>Каміно де Сантьяго</h4>
+                    <p>Священні маршрути паломників. French Way — найпопулярніший (780 км). Понад 200 000 паломників на рік.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🏛️</span>
+                    <h4>Hostal dos Reis Católicos</h4>
+                    <p>Готель-парадор, заснований 1492 року. Один із найстаріших готелів у світі!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎭</span>
+                    <h4>Praza do Obradoiro</h4>
+                    <p>Головна площа з бароковим фасадом. Зображена на іспанських євро-монетах!</p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                Ботуфумейро важить 70 кг, має висоту 1.4 м і розганяється до 68 км/год! Його тягнуть 4 людини.
+            </div>
+
+            <h3>📅 Коли їхати</h3>
+            <table>
+                <tr>
+                    <th>Сезон</th>
+                    <th>Температура</th>
+                    <th>Коментар</th>
+                </tr>
+                <tr>
+                    <td>🌸 Весна (квіт-черв)</td>
+                    <td>15-22°C</td>
+                    <td>Ідеально! Мінімум дощів</td>
+                </tr>
+                <tr>
+                    <td>☀️ Літо (лип-серп)</td>
+                    <td>19-25°C</td>
+                    <td>Високий сезон, Каміно активний</td>
+                </tr>
+                <tr>
+                    <td>🍂 Осінь (верес-жовт)</td>
+                    <td>15-20°C</td>
+                    <td>Гарно, але більше дощів</td>
+                </tr>
+                <tr>
+                    <td>❄️ Зима (груд-берез)</td>
+                    <td>9-12°C</td>
+                    <td>Дощово, але без натовпів</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Cíes Islands Section -->
+        <section id="cies" class="section">
+            <h2>🏝️ Острови Сіс (Islas Cíes)</h2>
+            
+            <div class="highlight">
+                <strong>🏆 Найкращі пляжі в Європі!</strong>
+                The Guardian назвав пляж Rodas «найкращим пляжем у світі» (2007). New York Times включив Сіс до «52 місць, що змінюють світ» (2022).
+            </div>
+
+            <h3>📍 Загальна інформація</h3>
+            <p>Архіпелаг з 3 островів у гирлі Рії де Віго. Разом з сусідніми островами — <strong>Національний парк</strong>.</p>
+            
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">⛰️</span>
+                    <h4>Монтеагудо</h4>
+                    <p>«Гостра гора», північний острів. Найвища точка — Alto das Cíes, 197 м.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🗼</span>
+                    <h4>До Фари</h4>
+                    <p>«Острів маяка», середній. З'єднаний піщаним мостом з Монтеагудо.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">⛪</span>
+                    <h4>Сан-Мартіньо</h4>
+                    <p>«Святий Мартін», південний. Найменший з трьох.</p>
+                </div>
+            </div>
+
+            <h3>🏖️ Пляжі</h3>
+            <p>Усього <strong>9 пляжів</strong> з кришталево чистою водою. Головний — <strong>Playa de Rodas</strong> — піщаний міст 1 200 м між островами.</p>
+
+            <h3>⛴️ Як дістатися</h3>
+            <table>
+                <tr>
+                    <th>Порт відправлення</th>
+                    <th>Час у дорозі</th>
+                    <th>Примітки</th>
+                </tr>
+                <tr>
+                    <td>🚢 Віго (Mugardos)</td>
+                    <td>~35 хв</td>
+                    <td>Основний маршрут</td>
+                </tr>
+                <tr>
+                    <td>🚢 Баїона</td>
+                    <td>~35 хв</td>
+                    <td>Зручно з Баїони</td>
+                </tr>
+                <tr>
+                    <td>🚢 Кангас</td>
+                    <td>~35 хв</td>
+                    <td>Від причалу A Ermida</td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <strong>⚠️ Важливо!</strong>
+                Пороми ходять лише з березня по жовтень. Квитки <strong>обов'язково</strong> бронюйте заздалегідь онлайн! Ліміт відвідувачів обмежений.
+            </div>
+
+            <h3>💰 Вартість</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">🎫</span>
+                    <h4>Пором</h4>
+                    <p>€15-20 туди-назад (дорослі)<br>Діти до 4 років — безкоштовно</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🏖️</span>
+                    <h4>Вхід на острови</h4>
+                    <p>Безкоштовно! Але все сміття — з собою!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">⛺</span>
+                    <h4>Кемпінг</h4>
+                    <p>Потрібне бронювання через порт Віго. Місця обмежені.</p>
+                </div>
+            </div>
+
+            <h3>🌿 Що подивитися</h3>
+            <ul>
+                <li>🏖️ <strong>Playa de Rodas</strong> — головна перлина, півмісяць з лагуною</li>
+                <li>🌊 <strong>9 пляжів</strong> з білого піску та кришталевої води</li>
+                <li>🦅 <strong>Орнітологічні обсерваторії</strong> на островах</li>
+                <li>🐬 <strong>Дельфіни та кити</strong> — часто спостерігаються в навколишніх водах</li>
+                <li>🤿 <strong>Сноркелінг</strong> — багата підводна екосистема</li>
+                <li>🌅 <strong>Захід сонця</strong> — неймовірні краєвиди!</li>
+            </ul>
+
+            <div class="fun-fact">
+                На островах гніздиться 22 000 пар чайок! Це одна з найбільших колоній в Європі. А в навколишніх водах живе 27 видів китоподібних.
+            </div>
+
+            <h3>🌤️ Коли їхати</h3>
+            <table>
+                <tr>
+                    <th>Сезон</th>
+                    <th>Оцінка</th>
+                    <th>Коментар</th>
+                </tr>
+                <tr>
+                    <td>☀️ Черв-верес</td>
+                    <td>⭐ Найкраще</td>
+                    <td>Тепло, пороми, всі пляжі</td>
+                </tr>
+                <tr>
+                    <td>🌤️ Травень, жовт</td>
+                    <td>✅ Гарно</td>
+                    <td>Менше натовпу</td>
+                </tr>
+                <tr>
+                    <td>🔥 Лип-серп</td>
+                    <td>🔥 Пік</td>
+                    <td>Бронюйте ЗАВЖДИ заздалегідь!</td>
+                </tr>
+                <tr>
+                    <td>❄️ Зима</td>
+                    <td>❌ Немає поромів</td>
+                    <td>Лише приватні човни</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Gastronomy Section -->
+        <section id="gastronomy" class="section">
+            <h2>🍽️ Гастрономія Галісії</h2>
+            
+            <div class="highlight">
+                <strong>🍷 Галісійська кухня — одна з найкращих в Іспанії!</strong>
+                Свежі морепродукти, кельтські традиції та найкращі вина країни.
+            </div>
+
+            <h3>🦑 Основні страви</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">🐙</span>
+                    <h4>Polbo á feira</h4>
+                    <p>Варений вісьминог з паприкою та оливковою олією. Найвідоміша страва!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🥘</span>
+                    <h4>Empanada galega</h4>
+                    <p>Пиріг з м'ясом, рибою або овочами. Більший за італійську!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🥩</span>
+                    <h4>Lacón con grelos</h4>
+                    <p>Свиняча нога з гірчичними пагонами. Класика!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🫕</span>
+                    <h4>Caldo gallego</h4>
+                    <p>Суп з бобів, картоплі, капусти та чорної ковбаси.</p>
+                </div>
+            </div>
+
+            <h3>🍷 Вина</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">🥂</span>
+                    <h4>Albariño</h4>
+                    <p>Найвідоміше галісійське біле вино. Ідеально до морепродуктів!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🍾</span>
+                    <h4>Ribeiro та Rías Baixas</h4>
+                    <p>Інші визнані галісійські вина з чудовим смаком.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🥃</span>
+                    <h4>Orujo</h4>
+                    <p>Галісійська горілка з винограду. Аналог італійської grappa.</p>
+                </div>
+            </div>
+
+            <h3>💰 Орієнтовна вартість</h3>
+            <table>
+                <tr>
+                    <th>Категорія</th>
+                    <th>Вартість</th>
+                </tr>
+                <tr>
+                    <td>🏨 Хостел (ліжко)</td>
+                    <td>€15-25/ніч</td>
+                </tr>
+                <tr>
+                    <td>🏨 Готель 3*</td>
+                    <td>€60-100/ніч</td>
+                </tr>
+                <tr>
+                    <td>🍽️ Обід (menu del día)</td>
+                    <td>€12-18</td>
+                </tr>
+                <tr>
+                    <td>🍽️ Вечеря</td>
+                    <td>€25-40</td>
+                </tr>
+                <tr>
+                    <td>☕ Кава</td>
+                    <td>€1.20-2.50</td>
+                </tr>
+                <tr>
+                    <td>🍷 Келих вина</td>
+                    <td>€1.50-3.00</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Practical Tips Section -->
+        <section id="practical" class="section">
+            <h2>💡 Практичні поради</h2>
+            
+            <h3>📋 Загальні рекомендації</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">📅</span>
+                    <h4>Найкращий час</h4>
+                    <p><strong>Травень-жовтень</strong> для обох місць. Для Каміно — липень, для пляжів — червень-вересень.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">💰</span>
+                    <h4>Бюджет</h4>
+                    <p>Галісія — <strong>одна з найдешевших</strong> регіонів Іспанії. Менш дорого, ніж Мадрид чи Барселона!</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🗣️</span>
+                    <h4>Мова</h4>
+                    <p>Галісійська (galego) близька до португальської. Іспанську розуміють всюди.</p>
+                </div>
+            </div>
+
+            <h3>🏝️ Для островів Сіс</h3>
+            <div class="fun-fact">
+                Беріть воду, сонцезахист та шапку! На островах майже немає тіні. І обов'язково беріть пакет для сміття — баків немає, все сміття треба забрати з собою!
+            </div>
+
+            <h3>🏛️ Для Сантьяго</h3>
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">🐚</span>
+                    <h4>Креденсіаль паломника</h4>
+                    <p>Обов'язкова для проживання в альбергах. Купіть на початку шляху.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">👟</span>
+                    <h4>Взуття</h4>
+                    <p>Зручне, розходежене взуття для Каміно. Ніколи не ходіть в новому!</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>🎊 Свято апостола Якова — 25 липня</strong>
+                Найбільш народжений день! Якщо хочете відвідати — бронюйте все заздалегідь. Наступний <strong>Святий рік — 2027!</strong>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="crab-icon">🦀🧠</p>
+        <p><strong>Подорож в Серце Галісії</strong></p>
+        <p>Створено з любов'ю та мегамозком краба</p>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+            Джерела: Wikipedia, The Guardian, New York Times, офіційні туристичні портали
+        </p>
+    </footer>
+</body>
+</html>
