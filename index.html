@@ -11,12 +11,12 @@
             font-family: 'Georgia', serif;
             line-height: 1.8;
             color: #333;
-            background: #fafafa;
+            background: #0f0f1a;
         }
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, #1a3a4a 0%, #2c5f2d 40%, #97bc62 100%);
+            background: linear-gradient(135deg, #0a2540 0%, #1a4a5e 40%, #2d6a4f 100%);
             color: white;
             padding: 120px 20px;
             text-align: center;
@@ -29,7 +29,7 @@
             position: absolute;
             bottom: 0; left: 0; right: 0;
             height: 80px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80"><path fill="%23fafafa" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80Z"></path></svg>') no-repeat bottom;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80"><path fill="%230f0f1a" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80Z"></path></svg>') no-repeat bottom;
             background-size: cover;
         }
 
@@ -57,12 +57,12 @@
 
         /* Navigation */
         nav {
-            background: #1a3a4a;
+            background: #0a2540;
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
 
         nav ul {
@@ -98,32 +98,34 @@
 
         .section {
             margin-bottom: 60px;
-            background: white;
+            background: #1a1a2e;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid #2a2a4a;
         }
 
         .section h2 {
             font-size: 2.5em;
-            color: #1a3a4a;
+            color: #97bc62;
             margin-bottom: 30px;
-            border-bottom: 3px solid #97bc62;
+            border-bottom: 3px solid #2c5f2d;
             padding-bottom: 15px;
         }
 
         .section h3 {
             font-size: 1.8em;
-            color: #2c5f2d;
+            color: #52b788;
             margin: 30px 0 20px 0;
         }
 
         .section p {
             margin-bottom: 15px;
             font-size: 1.1em;
+            color: #e0e0e0;
         }
 
-        /* Photo gallery */
+        /* Photo gallery with theme backgrounds */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -133,16 +135,8 @@
             overflow: hidden;
         }
 
-        .photo-grid.tall {
-            grid-template-columns: 1fr 1fr;
-        }
-
         .photo-grid.triple {
             grid-template-columns: repeat(3, 1fr);
-        }
-
-        .photo-grid.single {
-            grid-template-columns: 1fr;
         }
 
         .photo-grid .photo {
@@ -153,7 +147,7 @@
         }
 
         .photo-grid .photo.tall {
-            height: 400px;
+            height: 350px;
         }
 
         .photo-grid .photo.wide {
@@ -161,15 +155,14 @@
             grid-column: span 2;
         }
 
-        .photo-grid .photo img {
+        .photo-bg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .photo-grid .photo:hover img {
-            transform: scale(1.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            position: relative;
         }
 
         .photo-caption {
@@ -177,11 +170,21 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
             color: white;
             padding: 20px 15px 12px;
             font-size: 0.9em;
         }
+
+        /* Card backgrounds */
+        .porto-bg { background: linear-gradient(135deg, #2c3e50, #3498db); }
+        .braga-bg { background: linear-gradient(135deg, #4a2c2a, #c0392b); }
+        .guimaraes-bg { background: linear-gradient(135deg, #6b4c3a, #a0522d); }
+        .coast-bg { background: linear-gradient(135deg, #1a6e4e, #38b000); }
+        .wine-bg { background: linear-gradient(135deg, #5b2c6f, #8e44ad); }
+        .santiago-bg { background: linear-gradient(135deg, #1a3a5c, #2c5f2d); }
+        .cies-bg { background: linear-gradient(135deg, #006d77, #83c5be); }
+        .food-bg { background: linear-gradient(135deg, #b5651d, #e8a87c); }
 
         /* Cards */
         .cards {
@@ -192,7 +195,7 @@
         }
 
         .card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: linear-gradient(135deg, #16213e, #1a1a2e);
             padding: 25px;
             border-radius: 12px;
             border-left: 5px solid #97bc62;
@@ -201,12 +204,12 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
         .card h4 {
             font-size: 1.4em;
-            color: #1a3a4a;
+            color: #97bc62;
             margin-bottom: 10px;
         }
 
@@ -236,9 +239,9 @@
             position: relative;
             padding: 20px 20px 20px 70px;
             margin: 20px 0;
-            background: white;
+            background: #16213e;
             border-radius: 12px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
             border-left: 4px solid #97bc62;
         }
 
@@ -258,18 +261,19 @@
 
         .route-stop h4 {
             font-size: 1.5em;
-            color: #1a3a4a;
+            color: #97bc62;
             margin-bottom: 10px;
         }
 
         .route-stop .distance {
             display: inline-block;
             background: #97bc62;
-            color: white;
+            color: #1a1a2e;
             padding: 3px 12px;
             border-radius: 15px;
             font-size: 0.85em;
             margin-bottom: 10px;
+            font-weight: bold;
         }
 
         /* Tables */
@@ -277,15 +281,15 @@
             width: 100%;
             border-collapse: collapse;
             margin: 25px 0;
-            background: white;
+            background: #16213e;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
 
         th {
-            background: #1a3a4a;
-            color: white;
+            background: #1a4a5e;
+            color: #97bc62;
             padding: 15px;
             text-align: left;
             font-weight: bold;
@@ -293,16 +297,17 @@
 
         td {
             padding: 12px 15px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #2a2a4a;
+            color: #e0e0e0;
         }
 
         tr:hover {
-            background: #f8f9fa;
+            background: #1a3050;
         }
 
         /* Highlights */
         .highlight {
-            background: linear-gradient(120deg, #97bc62 0%, #f4a261 100%);
+            background: linear-gradient(120deg, #1b4332 0%, #2d6a4f 100%);
             color: white;
             padding: 30px;
             border-radius: 12px;
@@ -314,35 +319,26 @@
             display: block;
             font-size: 1.3em;
             margin-bottom: 10px;
-        }
-
-        .highlight-box {
-            background: #e3f2fd;
-            border-left: 5px solid #2196f3;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .highlight-box strong {
-            color: #1a3a4a;
+            color: #97bc62;
         }
 
         .warning-box {
-            background: #fff3cd;
+            background: #3d2c0a;
             border-left: 5px solid #f4a261;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
+            color: #f4a261;
         }
 
         /* Fun facts */
         .fun-fact {
-            background: linear-gradient(135deg, #fff3cd, #ffe8a1);
-            border-left: 5px solid #f4a261;
+            background: #1a3050;
+            border-left: 5px solid #97bc62;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
+            color: #e0e0e0;
         }
 
         .fun-fact::before {
@@ -352,24 +348,25 @@
         /* Day itinerary */
         .day-itinerary {
             margin: 25px 0;
-            background: linear-gradient(135deg, #f1f8e9, #dcedc8);
+            background: linear-gradient(135deg, #1b4332, #2d6a4f);
             padding: 25px;
             border-radius: 12px;
         }
 
         .day-itinerary h4 {
             font-size: 1.4em;
-            color: #2c5f2d;
+            color: #97bc62;
             margin-bottom: 15px;
         }
 
         .day-itinerary ul {
             margin-left: 20px;
+            color: #e0e0e0;
         }
 
         /* Footer */
         footer {
-            background: #1a3a4a;
+            background: #0a2540;
             color: white;
             text-align: center;
             padding: 40px 20px;
@@ -382,7 +379,6 @@
             .hero h1 { font-size: 2.5em; }
             .section { padding: 25px; }
             nav ul { gap: 10px; }
-            .photo-grid.tall { grid-template-columns: 1fr; }
             .photo-grid.triple { grid-template-columns: 1fr; }
             .photo-grid .photo.wide { grid-column: span 1; height: 250px; }
             .route-stop { padding-left: 20px; }
@@ -406,7 +402,7 @@
         <ul>
             <li><a href="#route">🗺️ Маршрут</a></li>
             <li><a href="#itinerary">📋 День за днем</a></li>
-            <li><a href="#santiago">🏛️ Сантьяго</a></li>
+            <li><a href="#santiago">⛪ Сантьяго</a></li>
             <li><a href="#cies">🏝️ Острови Сіс</a></li>
             <li><a href="#gastronomy">🍽️ Гастрономія</a></li>
         </ul>
@@ -420,54 +416,45 @@
             
             <div class="highlight">
                 <strong>🚗 Автомобільна пригода</strong>
-                Загальна відстань: ~300 км з Португальії → ~260 км по Іспанії = **~560 км загалом**. Час у дорозі без зупинок: ~5-6 год. Рекомендовано 2-3 дні з зупинками!
+                Загальна відстань: ~300 км з Португалії → ~260 км по Іспанії = **~560 км загалом**. Час у дорозі без зупинок: ~5-6 год. Рекомендовано 2-3 дні з зупинками!
             </div>
 
-            <!-- Phase 1: Porto -->
             <div class="route-timeline">
                 <div class="route-stop" data-icon="🇵🇹">
-                    <span class="distance">Португальські Піренеї</span>
+                    <span class="distance">🇵🇹 Португалія</span>
                     <h4>1. Порту — стартова точка 🏙️</h4>
                     <p>Місто, звідки починається подорож. Встигни подивитись:</p>
                     <ul>
                         <li>🌉 <strong>Пані-ду-Луїш I</strong> — двоярусний міст, іконка Порту</li>
-                        <li>🏺 <strong>Лікатеа/Рібейра</strong> — набережна, об'єкт ЮНЕСКО</li>
+                        <li>🏺 <strong>Рібейра</strong> — набережна, об'єкт ЮНЕСКО</li>
                         <li>🍷 <strong>Підвали портвейну</strong> в Вила-Нові-де-Гайя</li>
                         <li>⛪ <strong>Вежа Клерігос</strong> — панорама міста</li>
                         <li>📚 <strong>Ліварія Лейварія</strong> — найкрасивіша в світі</li>
                     </ul>
-                    <div class="photo-grid triple">
-                        <div class="photo">
-                            <img src="https://picsum.photos/seed/porto-bridge/600/400" alt="Porto - Dom Luís Bridge" />
-                            <div class="photo-caption">🌉 Пані-ду-Луїш I</div>
-                        </div>
-                        <div class="photo">
-                            <img src="https://picsum.photos/seed/porto-ribeira/600/400" alt="Porto - Ribeira" />
-                            <div class="photo-caption">🏺 Рібейра</div>
-                        </div>
-                        <div class="photo">
-                            <img src="https://picsum.photos/seed/port-wine/600/400" alt="Port wine cellars" />
-                            <div class="photo-caption">🍷 Підвали портвейну</div>
+                    <div class="photo-grid">
+                        <div class="photo wide">
+                            <div class="photo-bg porto-bg">🌉🏙️</div>
+                            <div class="photo-caption">🌉 Пані-ду-Луїш I — іконка Порту</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="route-stop" data-icon="🏰">
+                <div class="route-stop" data-icon="⛪">
                     <span class="distance">2 год → ~180 км</span>
                     <h4>2. Брага 🏰</h4>
                     <p>«Римська Ерусалима» Португалії. Обов'язково:</p>
                     <ul>
                         <li>⛪ <strong>Сантуш-ду-Ескуру</strong> — найвідоміша церква з фонтаном</li>
                         <li>🏞️ <strong>Бон-Жезуш</strong> — 1000+ сходинок, грандіозна барокова процесія</li>
-                        <li>🏛️ <strong>Собор (Сі)</strong> — романикий фортечний собор</li>
+                        <li>🏛️ <strong>Собор (Се)</strong> — романикий фортечний собор</li>
                     </ul>
                     <div class="photo-grid">
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/braga-bomjesus/600/400" alt="Braga - Bom Jesus" />
+                            <div class="photo-bg braga-bg">⛪🏰</div>
                             <div class="photo-caption">⛪ Бон-Жезуш, Брага</div>
                         </div>
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/braga-cathedral/600/400" alt="Braga cathedral" />
+                            <div class="photo-bg braga-bg">🏛️⛪</div>
                             <div class="photo-caption">🏛️ Собор Браги</div>
                         </div>
                     </div>
@@ -482,9 +469,9 @@
                         <li>🏘️ <strong>Історичний центр</strong> — ЮНЕСКО, мальовничі вулички</li>
                         <li>👑 <strong>Паласіу ду Дуке ду Брін</strong> — середньовічний палац</li>
                     </ul>
-                    <div class="photo-grid single">
-                        <div class="photo tall">
-                            <img src="https://picsum.photos/seed/guimaraes-castle/600/500" alt="Guimarães castle" />
+                    <div class="photo-grid">
+                        <div class="photo">
+                            <div class="photo-bg guimaraes-bg tall">🏰👑</div>
                             <div class="photo-caption">🏰 Замок Гімарайнш — колибель Португалії</div>
                         </div>
                     </div>
@@ -492,32 +479,28 @@
 
                 <div class="route-stop" data-icon="🌊">
                     <span class="distance">1.5 год → ~90 км</span>
-                    <h4>4. Камоїнш / Узбережжя 🌊</h4>
+                    <h4>4. Viana do Castelo / Узбережжя 🌊</h4>
                     <p>Пляжі та містечка узбережжя Атлантики:</p>
                     <ul>
                         <li>🏖️ <strong>Viana do Castelo</strong> — форт Святої Катерини, краєвид</li>
                         <li>⛪ <strong>Святилище Святого Серця Ісуса (Sameiro)</strong> — панорама Браги</li>
-                        <li>🐟 <strong>Фару</strong> — рибальські порти, свіжі морепродукти</li>
+                        <li>🐟 <strong>Рибальські порти</strong> — свіжі морепродукти</li>
                     </ul>
-                    <div class="photo-grid triple">
+                    <div class="photo-grid">
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/viana-castelo/600/350" alt="Viana do Castelo" />
+                            <div class="photo-bg coast-bg">🏖️⛪</div>
                             <div class="photo-caption">⛪ Форт Viana do Castelo</div>
                         </div>
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/atlantic-coast/600/350" alt="Portuguese coast" />
+                            <div class="photo-bg coast-bg">🌊🐟</div>
                             <div class="photo-caption">🌊 Узбережжя Атлантики</div>
-                        </div>
-                        <div class="photo">
-                            <img src="https://picsum.photos/seed/seaside-fishing/600/350" alt="Portuguese seaside" />
-                            <div class="photo-caption">🐟 Рибальський порт</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="route-stop" data-icon="🌉">
                     <span class="distance">ПЕРЕХІД ДО ІСПАНІЇ</span>
-                    <h4>5. Кордона — в'їзд до Галісії 🇪🇸</h4>
+                    <h4>5. Кордон — в'їзд до Галісії 🇪🇸</h4>
                     <p>Перетинаєш кордон! Галісія чекає на тебе.</p>
                     <ul>
                         <li>📝 <strong>Кордон без контролю</strong> — Шенген, просто їдеш далі</li>
@@ -527,59 +510,58 @@
 
                 <div class="route-stop" data-icon="🍷">
                     <span class="distance">2 год → ~130 км</span>
-                    <h4>6. Ріаса Баяшас (Rías Baixas) 🍷</h4>
+                    <h4>6. Rías Baixas — Виноградники 🍷</h4>
                     <p>Затоки, виноградники, вино Albariño!</p>
                     <ul>
                         <li>🍷 <strong>Винодельні Albariño</strong> — віртуозні білі вина, спробуй!</li>
                         <li>🏘️ <strong>O Porriño / Tui</strong> — маленькі містечка з видом на річку</li>
                         <li>🏰 <strong>Туй (Tui)</strong> — середньовічний замок на кордоні</li>
-                        <li>⛪ <strong>Собор Туй</strong> — один із найдавніших у Галісії</li>
                     </ul>
                     <div class="photo-grid triple">
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/albarino-wine-rivas/600/350" alt="Albariño wine" />
+                            <div class="photo-bg wine-bg">🍷🍇</div>
                             <div class="photo-caption">🍷 Albariño — галісійське біле</div>
                         </div>
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/vineyards-galicia/600/350" alt="vineyards" />
-                            <div class="photo-caption">🍇 Виноградники Ріаса Баяшас</div>
+                            <div class="photo-bg wine-bg">🍇⛰️</div>
+                            <div class="photo-caption">🍇 Виноградники Rías Baixas</div>
                         </div>
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/til-castle/600/350" alt="Tui castle" />
+                            <div class="photo-bg braga-bg">🏰🌅</div>
                             <div class="photo-caption">🏰 Замок Туй</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="route-stop" data-icon="🌊">
+                <div class="route-stop" data-icon="🏝️">
                     <span class="distance">1.5 год → ~90 км</span>
-                    <h4>7. Віго + Острови Сіс 🏝️</h4>
+                    <h4>7. Vigo / Острови Сіс 🏝️</h4>
                     <p>Віго — найпівденніше місто Галісії, ворота до островів.</p>
                     <ul>
                         <li>🏖️ <strong>Playa de Rodas (Islas Cíes)</strong> — найкращий пляж у світі!</li>
-                        <li>🐬 <strong>Види дельфінів</strong> — в акваторії Віго</li>
-                        <li>🍽️ <strong>Ринок Віго</strong> — свіжі морепродукти, морепродукти</li>
+                        <li>🐬 <strong>Дельфіни</strong> — в акваторії Віго</li>
+                        <li>🍽️ <strong>Ринок Віго</strong> — свіжі морепродукти</li>
                     </ul>
                     <div class="photo-grid">
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/cies-islands/600/400" alt="Cíes Islands Rodas beach" />
+                            <div class="photo-bg cies-bg tall">🏖️🌊</div>
                             <div class="photo-caption">🏖️ Playa de Rodas — найкращий пляж!</div>
                         </div>
                         <div class="photo">
-                            <img src="https://picsum.photos/seed/vigo-harbor/600/400" alt="Vigo harbor" />
-                            <div class="photo-caption">🐬 Вигу — гавань і острови</div>
+                            <div class="photo-bg cies-bg">🐬⛵</div>
+                            <div class="photo-caption">🐬 Віго — гавань і острови</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="route-stop" data-icon="⛪">
                     <span class="distance">2 год → ~160 км</span>
-                    <h4>8. Сантьяго-де-Компостела ⛪</h4>
+                    <h4>8. Santiago de Compostela ⛪</h4>
                     <p>Фінальна точка подорожі!</p>
-                    <div class="photo-grid single">
-                        <div class="photo tall">
-                            <img src="https://picsum.photos/seed/santiago-cathedral/600/500" alt="Santiago Cathedral" />
-                            <div class="photo-caption">⛪ Кафедральний собор Сантьяго</div>
+                    <div class="photo-grid">
+                        <div class="photo wide">
+                            <div class="photo-bg santiago-bg">⛪🐚</div>
+                            <div class="photo-caption">⛪ Кафедральний собор Сантьяго — фінал подорожі!</div>
                         </div>
                     </div>
                 </div>
@@ -607,7 +589,7 @@
                     <li>🌅 <strong>Ранок:</strong> Вихід 8:00, дорога через Viana do Castelo</li>
                     <li>🌊 <strong>10:30:</strong> Узбережжя — пляжі, форт Святої Катерини</li>
                     <li>🏰 <strong>13:00:</strong> Обід у Туй — рибні страви</li>
-                    <li>🍷 <strong>15:00:</strong> Виноградники Ріаса Баяшас — дегустація Albariño</li>
+                    <li>🍷 <strong>15:00:</strong> Виноградники Rías Baixas — дегустація Albariño</li>
                     <li>🌙 <strong>Вечір:</strong> Ніч у Віго</li>
                 </ul>
             </div>
@@ -646,21 +628,6 @@
             </div>
 
             <h3>⛪ Кафедральний собор</h3>
-            <div class="photo-grid">
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/santiago-facade/600/400" alt="Santiago Cathedral facade" />
-                    <div class="photo-caption">⛪ Романський собор (1075-1211)</div>
-                </div>
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/praza-obradoiro/600/400" alt="Praza do Obradoiro" />
-                    <div class="photo-caption">🏛️ Praza do Obradoiro</div>
-                </div>
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/botafumeiro/600/400" alt="Botafumeiro" />
-                    <div class="photo-caption">🔥 Ботуфумейро — 70 кг!</div>
-                </div>
-            </div>
-
             <div class="cards">
                 <div class="card">
                     <span class="card-icon">⛪</span>
@@ -670,7 +637,7 @@
                 <div class="card">
                     <span class="card-icon">🐚</span>
                     <h4>Каміно де Сантьяго</h4>
-                    <p>200 000+ паломників на рік. French Way — 780 км від Франції. Галісійська мова: galego.</p>
+                    <p>200 000+ паломників на рік. French Way — 780 км від Франції.</p>
                 </div>
                 <div class="card">
                     <span class="card-icon">🔥</span>
@@ -684,33 +651,28 @@
                 </div>
             </div>
 
+            <div class="photo-grid">
+                <div class="photo">
+                    <div class="photo-bg santiago-bg tall">⛪🌙</div>
+                    <div class="photo-caption">⛪ Романський собор (1075-1211)</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-bg santiago-bg">🏛️🐚</div>
+                    <div class="photo-caption">🏛️ Praza do Obradoiro</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-bg santiago-bg">🔥⛪</div>
+                    <div class="photo-caption">🔥 Ботуфумейро — 70 кг!</div>
+                </div>
+            </div>
+
             <h3>📅 Коли їхати</h3>
             <table>
-                <tr>
-                    <th>Сезон</th>
-                    <th>Температура</th>
-                    <th>Коментар</th>
-                </tr>
-                <tr>
-                    <td>🌸 Весна</td>
-                    <td>15-22°C</td>
-                    <td>Ідеально!</td>
-                </tr>
-                <tr>
-                    <td>☀️ Літо</td>
-                    <td>19-25°C</td>
-                    <td>Високий сезон</td>
-                </tr>
-                <tr>
-                    <td>🍂 Осінь</td>
-                    <td>15-20°C</td>
-                    <td>Гарно, але дощі</td>
-                </tr>
-                <tr>
-                    <td>❄️ Зима</td>
-                    <td>9-12°C</td>
-                    <td>Дощово, без натовпів</td>
-                </tr>
+                <tr><th>Сезон</th><th>Температура</th><th>Коментар</th></tr>
+                <tr><td>🌸 Весна</td><td>15-22°C</td><td>Ідеально!</td></tr>
+                <tr><td>☀️ Літо</td><td>19-25°C</td><td>Високий сезон</td></tr>
+                <tr><td>🍂 Осінь</td><td>15-20°C</td><td>Гарно, але дощі</td></tr>
+                <tr><td>❄️ Зима</td><td>9-12°C</td><td>Дощово, без натовпів</td></tr>
             </table>
         </section>
 
@@ -721,21 +683,6 @@
             <div class="highlight">
                 <strong>🏆 Найкращі пляжі в Європі!</strong>
                 The Guardian — «найкращий пляж у світі» (2007). New York Times — «52 місць, що змінюють світ» (2022).
-            </div>
-
-            <div class="photo-grid triple">
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/cies-aerial/600/350" alt="Cíes Islands aerial" />
-                    <div class="photo-caption">🏝️ Вид на острови</div>
-                </div>
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/rodas-beach/600/350" alt="Playa de Rodas" />
-                    <div class="photo-caption">🏖️ Praia de Rodas</div>
-                </div>
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/rodas-lagoon/600/350" alt="Rodas lagoon" />
-                    <div class="photo-caption">🌊 Лагуна Rodas</div>
-                </div>
             </div>
 
             <div class="cards">
@@ -761,6 +708,21 @@
                 </div>
             </div>
 
+            <div class="photo-grid triple">
+                <div class="photo">
+                    <div class="photo-bg cies-bg">🏝️🌊</div>
+                    <div class="photo-caption">🏝️ Острови з висоти</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-bg cies-bg">🏖️🌅</div>
+                    <div class="photo-caption">🏖️ Praia de Rodas</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-bg cies-bg">🌊🐬</div>
+                    <div class="photo-caption">🌊 Лагуна Rodas</div>
+                </div>
+            </div>
+
             <div class="warning-box">
                 <strong>⚠️ Важливо!</strong> Бронюй пором ЗАРАЗ! Ліміт відвідувачів обмежений. Все сміття — з собою!
             </div>
@@ -773,21 +735,6 @@
             <div class="highlight">
                 <strong>🍷 Галісійська кухня — одна з найкращих в Іспанії!</strong>
                 Свежі морепродукти, кельтські традиції та найкращі вина країни.
-            </div>
-
-            <div class="photo-grid triple">
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/polbo-feira/600/350" alt="Polbo à feira" />
-                    <div class="photo-caption">🐙 Polbo à feira — вісьминог!</div>
-                </div>
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/galicia-wine-bar/600/350" alt="Albariño wine" />
-                    <div class="photo-caption">🍷 Albariño — біле вино</div>
-                </div>
-                <div class="photo">
-                    <img src="https://picsum.photos/seed/galicia-empanada/600/350" alt="Empanada" />
-                    <div class="photo-caption">🥘 Empanada galega</div>
-                </div>
             </div>
 
             <div class="cards">
@@ -813,12 +760,24 @@
                 </div>
             </div>
 
+            <div class="photo-grid triple">
+                <div class="photo">
+                    <div class="photo-bg food-bg">🐙🌶️</div>
+                    <div class="photo-caption">🐙 Polbo à feira — вісьминог!</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-bg wine-bg">🍷🍇</div>
+                    <div class="photo-caption">🍷 Albariño — біле вино</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-bg food-bg">🥘🫕</div>
+                    <div class="photo-caption">🥘 Empanada galega</div>
+                </div>
+            </div>
+
             <h3>💰 Орієнтовна вартість</h3>
             <table>
-                <tr>
-                    <th>Категорія</th>
-                    <th>Вартість</th>
-                </tr>
+                <tr><th>Категорія</th><th>Вартість</th></tr>
                 <tr><td>🏨 Хостел</td><td>€15-25/ніч</td></tr>
                 <tr><td>🏨 Готель 3*</td><td>€60-100/ніч</td></tr>
                 <tr><td>🍽️ Обід</td><td>€12-18</td></tr>
